@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace BankAccounts.CQRS.Projections
+namespace CQRS.Projections
 {
     //NB:
     //This is not suitable for anything other than demo purposes. 

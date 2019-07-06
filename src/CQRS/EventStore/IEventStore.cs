@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using CQRS;
 
-namespace BankAccounts.CQRS.EventStore
+namespace CQRS.EventStore
 {
     public interface IEventStore
     {

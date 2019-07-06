@@ -1,4 +1,4 @@
-namespace BankAccounts.CQRS.EventStore
+namespace CQRS.EventStore
 {
     public class VersionedData
     {

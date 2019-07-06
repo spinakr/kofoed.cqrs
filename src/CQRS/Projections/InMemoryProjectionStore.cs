@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BankAccounts.CQRS.Projections
+namespace CQRS.Projections
 {
     public class InMemoryProjectionStore<Tid, T> : IProjectionStore<Tid, T> where T : new()
     {

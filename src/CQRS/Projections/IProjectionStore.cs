@@ -1,4 +1,4 @@
-namespace BankAccounts.CQRS.Projections
+namespace CQRS.Projections
 {
     public interface IProjectionStore<Tid, T> where T : new()
     {

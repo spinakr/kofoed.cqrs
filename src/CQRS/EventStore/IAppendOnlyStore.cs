@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BankAccounts.CQRS.EventStore
+namespace CQRS.EventStore
 {
     public interface IAppendOnlyStore : IDisposable
     {

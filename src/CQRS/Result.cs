@@ -1,6 +1,6 @@
 using System;
 
-namespace BankAccounts.CQRS
+namespace CQRS
 {
     public class Result
     {

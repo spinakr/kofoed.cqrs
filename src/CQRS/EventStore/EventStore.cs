@@ -5,7 +5,7 @@ using System.Reflection;
 using CQRS;
 using Newtonsoft.Json;
 
-namespace BankAccounts.CQRS.EventStore
+namespace CQRS.EventStore
 {
     public class EventStore : IEventStore
     {

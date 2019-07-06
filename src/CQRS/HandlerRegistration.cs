@@ -5,7 +5,7 @@ using System.Reflection;
 using CQRS;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankAccounts.CQRS
+namespace CQRS
 {
     public static class HandlerRegistration
     {

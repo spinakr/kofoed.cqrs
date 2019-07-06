@@ -1,4 +1,4 @@
-namespace BankAccounts.CQRS
+namespace CQRS
 {
     public interface ICommand
     {

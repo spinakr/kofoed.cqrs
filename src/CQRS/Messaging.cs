@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CQRS;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankAccounts.CQRS
+namespace CQRS
 {
     public interface IMessaging
     {

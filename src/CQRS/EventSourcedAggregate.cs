@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CQRS;
 
-namespace BankAccounts.CQRS
+namespace CQRS
 {
     public abstract class EventSourcedAggregate
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BankAccounts.CQRS.EventStore;
+using CQRS.EventStore;
 
 namespace CQRS.EventStore
 {
