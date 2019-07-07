@@ -29,6 +29,10 @@ jobs:
         - attach_workspace:
                   at: /PocketCqrs
         - run:
+            name: Debug directory
+            command:
+              ls
+        - run:
             name: Pack project
             command:
               dotnet pack --no-build /p:PackageVersion=${CIRCLE_TAG} -o nuget
