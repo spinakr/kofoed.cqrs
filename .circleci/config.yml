@@ -6,7 +6,7 @@ jobs:
       - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
     steps: 
       - checkout
-      -  run:
+      - run:
         - name: Restore packages
         - command: dotnet restore
       - run :
