@@ -20,7 +20,7 @@ jobs:
                   root: src
                   # Must be relative path from root
                   paths:
-                    - PocketCqrs
+                    - PocketCqrs/*
   deploy:
       docker:
         # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
