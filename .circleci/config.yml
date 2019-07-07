@@ -1,9 +1,6 @@
 version: 2.1
 jobs:
   build:
-      filters:
-        tags:
-          only: /.*/
       docker:
         # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
         - image: mcr.microsoft.com/dotnet/core/sdk:2.2
@@ -18,13 +15,6 @@ jobs:
             command: 
               dotnet build
   deploy:
-      requires:
-        - build
-      filters:
-        tags:
-          only: /v[0-9]+\.[0-9]+\.[0-9]+/
-        branches:
-          only: master
       docker:
         # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
         - image: mcr.microsoft.com/dotnet/core/sdk:2.2
@@ -38,3 +28,19 @@ jobs:
             command:
               dotnet nuget push src/PocketCqrs/bin/Release/PocketCqrs.${CIRCLE_TAG}.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
 
+
+workflows:
+  build-andpush:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          filters:
+            tags:
+              only: /v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              only: master
+          requires:
+            - build
