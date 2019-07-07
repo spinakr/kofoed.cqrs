@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CQRS.Projections
+namespace Kofoed.CQRS.Projections
 {
     public class InMemoryProjectionStore<Tid, T> : IProjectionStore<Tid, T> where T : new()
     {

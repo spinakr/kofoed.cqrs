@@ -1,4 +1,4 @@
-namespace CQRS
+namespace Kofoed.CQRS
 {
     public interface IEvent
     {

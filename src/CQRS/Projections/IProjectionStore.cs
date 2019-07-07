@@ -1,4 +1,4 @@
-namespace CQRS.Projections
+namespace Kofoed.CQRS.Projections
 {
     public interface IProjectionStore<Tid, T> where T : new()
     {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace CQRS.Projections
+namespace Kofoed.CQRS.Projections
 {
     //NB:
     //This is not suitable for anything other than demo purposes. 

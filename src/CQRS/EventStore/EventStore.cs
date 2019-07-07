@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using CQRS;
 using Newtonsoft.Json;
 
-namespace CQRS.EventStore
+namespace Kofoed.CQRS.EventStore
 {
     public class EventStore : IEventStore
     {

@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CQRS.EventStore;
 
-namespace CQRS.EventStore
+namespace Kofoed.CQRS.EventStore
 {
     public class InMemoryAppendOnlyStore : IAppendOnlyStore
     {

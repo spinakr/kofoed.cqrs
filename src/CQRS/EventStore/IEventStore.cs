@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
-using CQRS;
 
-namespace CQRS.EventStore
+namespace Kofoed.CQRS.EventStore
 {
     public interface IEventStore
     {

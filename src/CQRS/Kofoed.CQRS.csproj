@@ -5,7 +5,7 @@
     <Authors>Anders Kofoed</Authors>
 
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>CQRS</RootNamespace>
+    <RootNamespace>Kofoed.CQRS</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

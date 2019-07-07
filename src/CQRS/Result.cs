@@ -1,6 +1,6 @@
 using System;
 
-namespace CQRS
+namespace Kofoed.CQRS
 {
     public class Result
     {

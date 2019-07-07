@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using CQRS;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CQRS
+namespace Kofoed.CQRS
 {
     public interface IMessaging
     {

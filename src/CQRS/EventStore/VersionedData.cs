@@ -1,4 +1,4 @@
-namespace CQRS.EventStore
+namespace Kofoed.CQRS.EventStore
 {
     public class VersionedData
     {

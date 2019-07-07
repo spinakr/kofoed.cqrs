@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using CQRS.EventStore;
 
-namespace CQRS.EventStore
+namespace Kofoed.CQRS.EventStore
 {
     //NB:
     //This is not suitable for anything other than demo purposes. 

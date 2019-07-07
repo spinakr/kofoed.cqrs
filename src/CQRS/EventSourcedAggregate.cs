@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using CQRS;
 
-namespace CQRS
+namespace Kofoed.CQRS
 {
     public abstract class EventSourcedAggregate
     {
