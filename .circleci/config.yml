@@ -13,20 +13,29 @@ jobs:
         - run:
             name: Build projects
             command: 
-              dotnet build
+              dotnet build -c Release
+        - persist_to_workspace:
+                  # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+                  # taken to be the root directory of the workspace.
+                  root: src/PocketCqrs/bin/
+                  # Must be relative path from root
+                  paths:
+                    - Release
   deploy:
       docker:
         # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
         - image: mcr.microsoft.com/dotnet/core/sdk:2.2
       steps: 
+        - attach_workspace:
+                  at: /out
         - run:
             name: Pack project
             command:
-              dotnet pack -c Release /p:PackageVersion=${CIRCLE_TAG}
+              dotnet pack --no-build /p:PackageVersion=${CIRCLE_TAG} /p:OutputPath=out/ -o nuget
         - run:
             name: Publish package to nuget
             command:
-              dotnet nuget push src/PocketCqrs/bin/Release/PocketCqrs.${CIRCLE_TAG}.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
+              dotnet nuget push nuget/PocketCqrs.${CIRCLE_TAG}.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
 
 
 workflows:
