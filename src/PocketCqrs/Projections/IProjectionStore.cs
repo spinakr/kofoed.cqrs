@@ -1,4 +1,4 @@
-namespace Kofoed.CQRS.Projections
+namespace PocketCqrs.Projections
 {
     public interface IProjectionStore<Tid, T> where T : new()
     {

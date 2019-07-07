@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Kofoed.CQRS.EventStore
+namespace PocketCqrs.EventStore
 {
     public interface IAppendOnlyStore : IDisposable
     {

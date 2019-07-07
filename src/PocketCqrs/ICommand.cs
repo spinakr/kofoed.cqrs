@@ -1,4 +1,4 @@
-namespace Kofoed.CQRS
+namespace PocketCqrs
 {
     public interface ICommand
     {

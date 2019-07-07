@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Kofoed.CQRS
+namespace PocketCqrs
 {
     public interface IMessaging
     {

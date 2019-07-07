@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Kofoed.CQRS.EventStore
+namespace PocketCqrs.EventStore
 {
     //NB:
     //This is not suitable for anything other than demo purposes. 

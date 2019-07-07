@@ -1,6 +1,6 @@
 using System;
 
-namespace Kofoed.CQRS
+namespace PocketCqrs
 {
     public class Result
     {

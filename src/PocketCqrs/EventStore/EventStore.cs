@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Kofoed.CQRS.EventStore
+namespace PocketCqrs.EventStore
 {
     public class EventStore : IEventStore
     {

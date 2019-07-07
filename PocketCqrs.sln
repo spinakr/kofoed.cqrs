@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{44BE46BC-500A-4EC2-BD12-052C3F4A6C05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kofoed.CQRS", "src\CQRS\Kofoed.CQRS.csproj", "{2A6EB8A3-9999-48AE-8AA4-A3B8992FD10B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketCqrs", "src\PocketCqrs\PocketCqrs.csproj", "{2A6EB8A3-9999-48AE-8AA4-A3B8992FD10B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

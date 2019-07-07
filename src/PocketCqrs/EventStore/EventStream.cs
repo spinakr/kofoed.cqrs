@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Kofoed.CQRS.EventStore
+namespace PocketCqrs.EventStore
 {
     public class EventStream
     {
