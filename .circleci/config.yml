@@ -17,21 +17,21 @@ jobs:
         - persist_to_workspace:
                   # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
                   # taken to be the root directory of the workspace.
-                  root: src/PocketCqrs/bin/
+                  root: src
                   # Must be relative path from root
                   paths:
-                    - Release
+                    - PocketCqrs
   deploy:
       docker:
         # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
         - image: mcr.microsoft.com/dotnet/core/sdk:2.2
       steps: 
         - attach_workspace:
-                  at: /out
+                  at: /PocketCqrs
         - run:
             name: Pack project
             command:
-              dotnet pack --no-build /p:PackageVersion=${CIRCLE_TAG} /p:OutputPath=out/ -o nuget
+              dotnet pack --no-build /p:PackageVersion=${CIRCLE_TAG} -o nuget
         - run:
             name: Publish package to nuget
             command:
