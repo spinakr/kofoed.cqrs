@@ -28,7 +28,7 @@ jobs:
         - run:
             name: Pack project
             command:
-              dotnet pack PocketCqrs/ --no-build /p:PackageVersion=${CIRCLE_TAG} -o nuget
+              dotnet pack src/PocketCqrs/ --no-build /p:PackageVersion=${CIRCLE_TAG} -o nuget
         - run:
             name: Publish package to nuget
             command:
