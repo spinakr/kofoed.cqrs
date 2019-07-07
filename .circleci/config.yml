@@ -39,3 +39,4 @@ workflows:
                 name: Publish package to nuget
                 command:
                   dotnet nuget push src/PocketCqrs/bin/Release/PocketCqrs.${CIRCLE_TAG}.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
+                  
