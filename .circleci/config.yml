@@ -10,7 +10,15 @@ jobs:
           name: Restore packages
           command: 
             dotnet restore
-      - run :
+      - run:
           name: Build projects
           command: 
             dotnet build
+      - run:
+          name: Pack project
+          command:
+            dotnet pack
+      - run:
+          name: Publish package to nuget
+          command:
+            dotnet nuget push Kofoed.CQRS.0.0.1.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
