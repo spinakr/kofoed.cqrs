@@ -15,7 +15,7 @@ jobs:
             command: 
               dotnet build -c Release
         - persist_to_workspace:
-                  root: /src
+                  root: src
                   paths:
                     - PocketCqrs/*
   deploy:
