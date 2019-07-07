@@ -21,4 +21,4 @@ jobs:
       - run:
           name: Publish package to nuget
           command:
-            dotnet nuget push Kofoed.CQRS.0.0.1.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
+            dotnet nuget push src/CQRS/bin/Debug/Kofoed.CQRS.0.0.1.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
