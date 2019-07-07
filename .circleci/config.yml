@@ -7,8 +7,10 @@ jobs:
     steps: 
       - checkout
       - run:
-        - name: Restore packages
-        - command: dotnet restore
+        name: Restore packages
+        command: 
+          dotnet restore
       - run :
-        - name: Build projects
-        - command: dotnet build
+        name: Build projects
+        command: 
+          dotnet build
