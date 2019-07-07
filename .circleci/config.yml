@@ -27,7 +27,7 @@ jobs:
         - image: mcr.microsoft.com/dotnet/core/sdk:2.2
       steps: 
         - attach_workspace:
-                  at: /PocketCqrs
+            at: /PocketCqrs
         - run:
             name: Debug directory
             command:
@@ -35,7 +35,7 @@ jobs:
         - run:
             name: Pack project
             command:
-              dotnet pack --no-build /p:PackageVersion=${CIRCLE_TAG} -o nuget
+              dotnet pack PocketCqrs/ --no-build /p:PackageVersion=${CIRCLE_TAG} -o nuget
         - run:
             name: Publish package to nuget
             command:
