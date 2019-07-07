@@ -1,40 +1,40 @@
 version: 2.1
 
 jobs:
-  build:
-    filters:  
-      tags:
-        only: /.*/
-    docker:
-      # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
-      - image: mcr.microsoft.com/dotnet/core/sdk:2.2
-    steps: 
-      - checkout
-      - run:
-          name: Restore packages
-          command: 
-            dotnet restore
-      - run:
-          name: Build projects
-          command: 
-            dotnet build
-  deploy:
-    requires:
-      - build
-    filters:
-      tags:
-        only: /v[0-9]+\.[0-9]+\.[0-9]+/
-      branches:
-        only: master
-    docker:
-      # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
-      - image: mcr.microsoft.com/dotnet/core/sdk:2.2
-    steps: 
-      - run:
-          name: Pack project
-          command:
-            dotnet pack -c Release /p:PackageVersion=${CIRCLE_TAG}
-      - run:
-          name: Publish package to nuget
-          command:
-            dotnet nuget push src/PocketCqrs/bin/Release/PocketCqrs.${CIRCLE_TAG}.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
+  - build:
+      filters:  
+        tags:
+          only: /.*/
+      docker:
+        # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
+        - image: mcr.microsoft.com/dotnet/core/sdk:2.2
+      steps: 
+        - checkout
+        - run:
+            name: Restore packages
+            command: 
+              dotnet restore
+        - run:
+            name: Build projects
+            command: 
+              dotnet build
+  - deploy:
+      requires:
+        - build
+      filters:
+        tags:
+          only: /v[0-9]+\.[0-9]+\.[0-9]+/
+        branches:
+          only: master
+      docker:
+        # - image: mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco
+        - image: mcr.microsoft.com/dotnet/core/sdk:2.2
+      steps: 
+        - run:
+            name: Pack project
+            command:
+              dotnet pack -c Release /p:PackageVersion=${CIRCLE_TAG}
+        - run:
+            name: Publish package to nuget
+            command:
+              dotnet nuget push src/PocketCqrs/bin/Release/PocketCqrs.${CIRCLE_TAG}.nupkg -k ${nugetorgapikey} -s https://api.nuget.org/v3/index.json
