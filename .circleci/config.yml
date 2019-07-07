@@ -15,10 +15,7 @@ jobs:
             command: 
               dotnet build -c Release
         - persist_to_workspace:
-                  # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
-                  # taken to be the root directory of the workspace.
-                  root: src
-                  # Must be relative path from root
+                  root: /src
                   paths:
                     - PocketCqrs/*
   deploy:
@@ -27,11 +24,7 @@ jobs:
         - image: mcr.microsoft.com/dotnet/core/sdk:2.2
       steps: 
         - attach_workspace:
-            at: /PocketCqrs
-        - run:
-            name: Debug directory
-            command:
-              ls
+            at: /src
         - run:
             name: Pack project
             command:
