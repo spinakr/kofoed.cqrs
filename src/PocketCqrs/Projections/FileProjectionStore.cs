@@ -6,23 +6,23 @@ using Newtonsoft.Json;
 
 namespace PocketCqrs.Projections
 {
-    //NB:
-    //This is not suitable for anything other than demo purposes. 
-    //Using files as storage will cause loss of data
-
     public class FileProjectionStore<Tid, T> : IProjectionStore<Tid, T>, IDisposable where T : new()
     {
         private Dictionary<string, StreamWriter> _fileStreams = new Dictionary<string, StreamWriter>();
         private string EventStoreContentPath;
 
-        public FileProjectionStore()
+        public FileProjectionStore(string fileBasePath)
         {
             var projectionName = typeof(T).ToString().Split('.').Last();
-            EventStoreContentPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/cqrs/projections/{projectionName}";
+            EventStoreContentPath = $"{fileBasePath}/cqrs/projections/{projectionName}";
             if (!Directory.Exists(EventStoreContentPath))
             {
                 Directory.CreateDirectory(EventStoreContentPath);
             }
+        }
+
+        public FileProjectionStore() : this(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
+        {
         }
 
         public T GetProjection(Tid id)
