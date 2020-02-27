@@ -2,11 +2,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>PocketCqrs</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.1.0</Version>
     <Authors>Anders Kofoed</Authors>
     <Summary>Minimal CQRS and ES implementation</Summary>
     <Description>Minimal CQRS and ES implementation based on inmemory and file storage</Description>
-    <TargetFramework>netstandard2</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>PocketCqrs</RootNamespace>
     <UserSecretsId>319f18f1-253f-4d31-8d88-d476370d196e</UserSecretsId>
   </PropertyGroup>
