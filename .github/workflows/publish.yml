@@ -16,12 +16,12 @@ jobs:
       #   uses: actions/setup-dotnet@v1
       #   with:
       #     dotnet-version: 3.1.100
-      
+
       # Publish
       - name: publish on version change
         uses: rohith/publish-nuget@v2
         with:
-          PROJECT_FILE_PATH: src/PocketCqrs/PocketCqrs.csproj 
+          PROJECT_FILE_PATH: src/PocketCqrs.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
           # VERSION_FILE_PATH: Directory.Build.props # Filepath with version info, relative to repository root. Defaults to project file
