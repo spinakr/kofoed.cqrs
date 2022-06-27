@@ -8,7 +8,7 @@ namespace PocketCqrs
 {
     public static class HandlerRegistration
     {
-        public static void AddHandlers(this IServiceCollection services, Assembly assemblyToScann)
+        public static IServiceCollection AddHandlers(this IServiceCollection services, Assembly assemblyToScann)
         {
             List<Type> handlerTypes = assemblyToScann.GetTypes()
                 .Where(x => x.GetInterfaces().Any(y => IsHandlerInterface(y)))
@@ -20,6 +20,8 @@ namespace PocketCqrs
                 List<Type> interfaceTypes = type.GetInterfaces().Where(y => IsHandlerInterface(y)).ToList();
                 interfaceTypes.Select(t => services.AddTransient(t, type)).ToList();
             }
+
+            return services;
         }
 
         private static bool IsHandlerInterface(Type type)
