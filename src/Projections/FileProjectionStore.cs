@@ -9,33 +9,32 @@ namespace PocketCqrs.Projections
     public class FileProjectionStore<Tid, T> : IProjectionStore<Tid, T>, IDisposable where T : new()
     {
         private Dictionary<string, StreamWriter> _fileStreams = new Dictionary<string, StreamWriter>();
-        private string EventStoreContentPath;
+        private string ProjectionsPath;
 
-        public FileProjectionStore(string fileBasePath)
+        public FileProjectionStore()
         {
             var projectionName = typeof(T).ToString().Split('.').Last();
-            EventStoreContentPath = $"{fileBasePath}/cqrs/projections/{projectionName}";
-            if (!Directory.Exists(EventStoreContentPath))
-            {
-                Directory.CreateDirectory(EventStoreContentPath);
-            }
-        }
+            var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var projectName = System.Reflection.Assembly.GetEntryAssembly().FullName;
 
-        public FileProjectionStore() : this(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
-        {
+            ProjectionsPath = $"{myDocumentsPath}/{projectName}/projections/{projectionName}";
+            if (!Directory.Exists(ProjectionsPath))
+            {
+                Directory.CreateDirectory(ProjectionsPath);
+            }
         }
 
         public T GetProjection(Tid id)
         {
 
-            var filePath = $"{EventStoreContentPath}/{id}";
+            var filePath = $"{ProjectionsPath}/{id}";
             if (!File.Exists(filePath)) return new T();
             return JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
         }
 
         public void Save(Tid id, T projection)
         {
-            var filePath = $"{EventStoreContentPath}/{id}";
+            var filePath = $"{ProjectionsPath}/{id}";
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
@@ -54,7 +53,7 @@ namespace PocketCqrs.Projections
             }
             else
             {
-                var filePath = $"{EventStoreContentPath}/{id}";
+                var filePath = $"{ProjectionsPath}/{id}";
                 fileStream = File.AppendText(filePath);
                 fileStream.AutoFlush = true;
             }

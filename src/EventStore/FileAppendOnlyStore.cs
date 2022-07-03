@@ -10,17 +10,16 @@ namespace PocketCqrs.EventStore
         private Dictionary<string, StreamWriter> _fileStreams = new Dictionary<string, StreamWriter>();
         private string EventStoreContentPath;
 
-        public FileAppendOnlyStore(string storeagePath, string fileBasePath)
+        public FileAppendOnlyStore()
         {
-            EventStoreContentPath = $"{fileBasePath}/eventstore";
+            var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var projectName = System.Reflection.Assembly.GetEntryAssembly().FullName;
+
+            EventStoreContentPath = $"{myDocumentsPath}/{projectName}/eventstore";
             if (!Directory.Exists(EventStoreContentPath))
             {
                 Directory.CreateDirectory(EventStoreContentPath);
             }
-        }
-
-        public FileAppendOnlyStore(string storeName) : this(storeName, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
-        {
         }
 
         public void Append(string name, string jsonData, int expectedVersion)
