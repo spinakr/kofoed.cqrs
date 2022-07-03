@@ -11,13 +11,12 @@ namespace PocketCqrs.Projections
         private Dictionary<string, StreamWriter> _fileStreams = new Dictionary<string, StreamWriter>();
         private string ProjectionsPath;
 
-        public FileProjectionStore()
+        public FileProjectionStore(string storeName)
         {
             var projectionName = typeof(T).ToString().Split('.').Last();
             var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            var projectName = System.Reflection.Assembly.GetEntryAssembly().FullName;
 
-            ProjectionsPath = $"{myDocumentsPath}/{projectName}/projections/{projectionName}";
+            ProjectionsPath = $"{myDocumentsPath}/{storeName}/projections/{projectionName}";
             if (!Directory.Exists(ProjectionsPath))
             {
                 System.Console.WriteLine($"Creating directory {ProjectionsPath}");
