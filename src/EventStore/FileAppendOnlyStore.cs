@@ -18,6 +18,7 @@ namespace PocketCqrs.EventStore
             EventStoreContentPath = $"{myDocumentsPath}/{projectName}/eventstore";
             if (!Directory.Exists(EventStoreContentPath))
             {
+                System.Console.WriteLine($"Creating directory {EventStoreContentPath}");
                 Directory.CreateDirectory(EventStoreContentPath);
             }
         }

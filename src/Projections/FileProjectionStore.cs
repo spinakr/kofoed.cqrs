@@ -20,6 +20,7 @@ namespace PocketCqrs.Projections
             ProjectionsPath = $"{myDocumentsPath}/{projectName}/projections/{projectionName}";
             if (!Directory.Exists(ProjectionsPath))
             {
+                System.Console.WriteLine($"Creating directory {ProjectionsPath}");
                 Directory.CreateDirectory(ProjectionsPath);
             }
         }
