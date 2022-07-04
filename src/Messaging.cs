@@ -53,12 +53,19 @@ namespace PocketCqrs
         {
             Type type = typeof(IEventHandler<>);
             Type[] typeArgs = { @event.GetType() };
-            Type handlerType = type.MakeGenericType(typeArgs);
+            Type specificHandlerType = type.MakeGenericType(typeArgs);
+            Type[] baseEventTypeArgs = { typeof(IEvent) };
+            Type baseEventHandlerType = type.MakeGenericType(baseEventTypeArgs);
 
             using (var scope = _provider.CreateScope())
             {
-                IEnumerable<dynamic> handlers = scope.ServiceProvider.GetServices(handlerType);
+                IEnumerable<dynamic> handlers = scope.ServiceProvider.GetServices(specificHandlerType);
+                IEnumerable<dynamic> baseEventHandlers = scope.ServiceProvider.GetServices(baseEventHandlerType);
                 foreach (var handler in handlers)
+                {
+                    handler.Handle((dynamic)@event);
+                }
+                foreach (var handler in baseEventHandlers)
                 {
                     handler.Handle((dynamic)@event);
                 }
