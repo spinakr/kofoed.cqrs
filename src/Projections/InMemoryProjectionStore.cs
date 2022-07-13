@@ -4,7 +4,7 @@ namespace PocketCqrs.Projections
 {
     public class InMemoryProjectionStore<Tid, T> : IProjectionStore<Tid, T> where T : new()
     {
-        private static Dictionary<Tid, T> _store = new Dictionary<Tid, T>();
+        private Dictionary<Tid, T> _store = new Dictionary<Tid, T>();
 
         public T GetProjection(Tid id)
         {
