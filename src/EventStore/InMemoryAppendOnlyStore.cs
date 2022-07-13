@@ -21,6 +21,11 @@ namespace PocketCqrs.EventStore
             throw new System.NotImplementedException();
         }
 
+        public IEnumerable<VersionedData> ReadAllRecords()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<VersionedData> ReadRecords(string name)
         {
             var storedRecords = _store.Where(x => x.StreamName == name);

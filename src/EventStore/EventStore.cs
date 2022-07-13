@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace PocketCqrs.EventStore
@@ -34,6 +35,12 @@ namespace PocketCqrs.EventStore
                 stream.Version = record.Version;
             }
             return stream;
+        }
+
+        public IList<IEvent> LoadAllEvents()
+        {
+            var records = _appendOnlyStore.ReadAllRecords();
+            return records.SelectMany(r => JsonConvert.DeserializeObject<ICollection<IEvent>>(r.JsonData, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto })).ToList();
         }
     }
 }

@@ -7,5 +7,6 @@ namespace PocketCqrs.EventStore
     {
         void Append(string name, string jsonData, int expectedVersion);
         IEnumerable<VersionedData> ReadRecords(string name);
+        IEnumerable<VersionedData> ReadAllRecords();
     }
 }

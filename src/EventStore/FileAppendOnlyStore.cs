@@ -44,6 +44,13 @@ namespace PocketCqrs.EventStore
             });
         }
 
+        public IEnumerable<VersionedData> ReadAllRecords()
+        {
+            var dirPath = $"{EventStoreContentPath}/";
+            var files = Directory.GetFiles(dirPath).ToList();
+            return files.SelectMany(x => ReadRecords(Path.GetFileName(x)));
+        }
+
         public void Dispose()
         {
             foreach (var stream in _fileStreams)
@@ -67,5 +74,6 @@ namespace PocketCqrs.EventStore
             }
             return fileStream;
         }
+
     }
 }
